@@ -1,13 +1,15 @@
 <?php
 
-use Person\Person as Person;
-use Person\Name as Name;
-use GeekBrains\Blog\User as User;
-use GeekBrains\Blog\Post;
+use GeekBrains\LevelTwo\Person\Person;
+use GeekBrains\LevelTwo\Person\Name;
+use GeekBrains\LevelTwo\Blog\User;
+use GeekBrains\LevelTwo\Blog\Post;
 
 spl_autoload_register("classLoad");
 function classLoad($className){
-   $s = str_replace("\\", DIRECTORY_SEPARATOR ,$className).".php";
+   $s = str_replace(["GeekBrains\\LevelTwo", "\\" ], 
+                    ["src", DIRECTORY_SEPARATOR],
+                    $className).".php";
    require $s;
 }
 
